@@ -1,3 +1,5 @@
+import java.lang.classfile.instruction.LineNumber;
+
 public class Exercises {
     /**
      * Returns the sum of the values in the linked list.
@@ -35,7 +37,15 @@ public class Exercises {
      * @return a count of the negative values in the list
      */
     public static int countNegative(ListNode head) {
-        return -1;
+        int count = 0; 
+        ListNode current = head;
+        while(current != null){
+            if(current.data < 0){
+                count++;
+            }
+            current = current.next;
+        }
+        return count;
     }
 
     /**
