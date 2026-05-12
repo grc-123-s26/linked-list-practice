@@ -12,7 +12,14 @@ public class Exercises {
      * @return sum of the values in the list
      */
     public static int sum(ListNode head) {
-        return -1;
+        ListNode current = head;
+        int sum = 0;
+
+        while (current != null) {
+            sum += current.data;
+            current = current.next;
+        }
+        return sum;
     }
 
     /**
@@ -28,7 +35,16 @@ public class Exercises {
      * @return a count of the negative values in the list
      */
     public static int countNegative(ListNode head) {
-        return -1;
+        ListNode current = head;
+        int negCount = 0;
+
+        while (current != null) {
+            if (current.data < 0) {
+                negCount++;
+            }
+        current = current.next;
+        }
+        return negCount;
     }
 
     /**
@@ -46,7 +62,15 @@ public class Exercises {
      * @param toAdd the value to append in a new node
      */
     public static void addToEnd(ListNode head, int toAdd) {
-
+        if (head == null) {
+            return;
+        }
+        ListNode current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+        ListNode add = new ListNode(toAdd);
+        current.next = add;
     }
 
     /**
@@ -62,7 +86,12 @@ public class Exercises {
      * @param head the head of the list
      */
     public static void makePositive(ListNode head) {
+        ListNode current = head;
+            while (current != null) {
+                current.data = Math.abs(current.data);
 
+                current = current.next;
+            }
     }
 
     /**
@@ -82,6 +111,19 @@ public class Exercises {
      * @return whether the list is increasing
      */
     public static boolean isIncreasing(ListNode head) {
-        return false;
+        ListNode current = head;
+
+        if (current == null || current.next == null) {
+            return true;
+        }
+
+        while (current.next != null) {
+            if (current.data > current.next.data) {
+                return false;
+            }
+
+            current = current.next;
+        }
+        return true;
     }
 }
