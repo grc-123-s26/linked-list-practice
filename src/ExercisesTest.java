@@ -131,7 +131,7 @@ public class ExercisesTest {
     @Test
     public void testAddToEndNull() {
         ListNode head = null;
-        assertDoesNotThrow(() -> Exercises.addToEnd(head, 5), "addToEnd(null,5) should not throw");
+        Exercises.addToEnd(head, 5);
         assertNull("Head should remain null after addToEnd(null,5)", head);
     }
 

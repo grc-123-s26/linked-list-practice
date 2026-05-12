@@ -77,18 +77,18 @@ public class Exercises {
      */
     public static void addToEnd(ListNode head, int toAdd) {
         ListNode current = head;
-        if (head == null) {
+        if (current == null) {
             return;
         }
 
-        //ok i need to loop through this with a while
-        //the issue is i need to make sure the first node isn't null... 
-        //but when i get to the last node and it's null i need to add the new number
-        while(current != null) {
+        // need to look ahead of where i am, not where i am in the chain to be able to do what i want
+        // or else i loop forever with the change inside the while adding over and over
+        // or lose the address i need because i jump past it
+        while(current.next != null) {
             current = current.next;
         }
-
-        current = new ListNode(toAdd);
+        //need to add the thing not to where i am, but to the next one
+        current.next = new ListNode(toAdd);
     }
 
     /**
