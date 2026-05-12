@@ -12,6 +12,18 @@ public class Exercises {
      * @return sum of the values in the list
      */
     public static int sum(ListNode head) {
+        //grab the value of head
+            //if that value is null, 
+                //return 0
+            //if that value is not null
+                //make a return variable with a value of head
+
+        //move to the next link in the chain
+            //add that value to return variable
+        //repeat until you get to the last value in the chain
+
+        //return the return variable
+
         return -1;
     }
 
