@@ -86,10 +86,9 @@ public class Exercises {
         //but when i get to the last node and it's null i need to add the new number
         while(current != null) {
             current = current.next;
-        }
-
-        if (current == null) {
-            current.data = toAdd;
+            if (current == null) {
+                current.data = toAdd;
+            }
         }
     }
 
