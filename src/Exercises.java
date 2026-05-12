@@ -76,7 +76,21 @@ public class Exercises {
      * @param toAdd the value to append in a new node
      */
     public static void addToEnd(ListNode head, int toAdd) {
+        ListNode current = head;
+        if (head == null) {
+            return;
+        }
 
+        //ok i need to loop through this with a while
+        //the issue is i need to make sure the first node isn't null... 
+        //but when i get to the last node and it's null i need to add the new number
+        while(current != null) {
+            current = current.next;
+        }
+
+        if (current == null) {
+            current.data = toAdd;
+        }
     }
 
     /**
