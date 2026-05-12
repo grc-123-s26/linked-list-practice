@@ -13,18 +13,19 @@ public class Exercises {
      */
     public static int sum(ListNode head) {
         //grab the value of head
-            //if that value is null, 
-                //return 0
-            //if that value is not null
-                //make a return variable with a value of head
+        ListNode current = head;
+        if (current == null) {
+            return 0;
+        }
 
-        //move to the next link in the chain
-            //add that value to return variable
-        //repeat until you get to the last value in the chain
+        int returnVal = 0;
 
-        //return the return variable
-
-        return -1;
+        //go until you run out
+        while(current != null) {
+            returnVal += current.data;
+            current = current.next;
+        }
+        return returnVal;
     }
 
     /**
