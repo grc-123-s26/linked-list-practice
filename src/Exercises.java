@@ -98,11 +98,13 @@ public class Exercises {
 
         ListNode current = head;
 
-        if(current.data < 0) {
-            current.data = current.data * -1;
-        }
+        while(current != null) {
+            if(current.data < 0) {
+                current.data = current.data * -1;
+            }
 
-        current = current.next;
+            current = current.next;
+        }
     }
 
     /**
