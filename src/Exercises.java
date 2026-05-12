@@ -104,6 +104,38 @@ public class Exercises {
      * @param head the head of the list
      */
     public static void makePositive(ListNode head) {
+        //using count negative as my shell for this process i think it'll function very simmilarly
+        // grab the value of head
+        // ListNode current = head;
+        // // if current is null return 0
+        // if (current == null) {
+        //     return 0;
+        // }
+        // // make a return val
+        // int returnVal = 0;
+
+        // // while loop
+        // while(current != null) {
+        //     int currentVal = current.data;
+        //     if (currentVal < 0) {
+        //         returnVal++;
+        //     }
+        //     current = current.next;
+        // }
+        // return returnVal;
+        ListNode current = head;
+        if (current == null) {
+            return;
+        }
+
+        while(current != null) {
+            int currentVal = current.data;
+            if (currentVal < 0) {
+                currentVal = currentVal * -1;
+                current.data = currentVal;
+            }
+            current = current.next;
+        }
 
     }
 
