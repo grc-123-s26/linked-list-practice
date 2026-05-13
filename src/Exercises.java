@@ -60,12 +60,13 @@ public class Exercises {
      * @param toAdd the value to append in a new node
      */
     public static void addToEnd(ListNode head, int toAdd) {
+        if (head == null) return;
+
         while (head.next != null) {
             head = head.next;
         }
-
+        
         head.next = new ListNode(toAdd); 
-
     }
 
     /**
@@ -81,7 +82,10 @@ public class Exercises {
      * @param head the head of the list
      */
     public static void makePositive(ListNode head) {
-
+        while (head != null) {
+            if (head.data < 0) head.data = head.data * (-1);   
+            head = head.next;
+        }
     }
 
     /**
