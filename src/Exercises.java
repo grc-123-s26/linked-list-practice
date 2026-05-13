@@ -18,7 +18,7 @@ public class Exercises {
         //until head is null
         while (current != null) {
             //add value of current to sum 
-            sum += current.val;
+            sum += current.data;
             //point current to next value 
             current = current.next;
         }
@@ -41,12 +41,14 @@ public class Exercises {
         int count = 0;
 
         ListNode current = head;
-
+        //while current is not null 
         while (current != null) {
-            if (current.val < 0) {
+            //check to see if val is negative 
+            if (current.data < 0) {
+                //if so, add to count
                 count++;
             }
-
+                //move current to next value 
             current = current.next;
         }
 
@@ -67,9 +69,21 @@ public class Exercises {
      * @param head the head of the list
      * @param toAdd the value to append in a new node
      */
-    public static void addToEnd(ListNode head, int toAdd) {
-
+public static void addToEnd(ListNode head, int toAdd) {
+    if (head == null) //check for null value 
+    {
+        return;
     }
+    //set current to head 
+    ListNode current = head; 
+
+    while (current.next != null) //while loop as normal 
+    {
+        current = current.next; 
+    }
+    //move to next value to be added 
+    current.next = new ListNode(toAdd);
+}
 
     /**
      * Modifies the list to make all negative values positive.
