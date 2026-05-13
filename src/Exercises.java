@@ -60,6 +60,11 @@ public class Exercises {
      * @param toAdd the value to append in a new node
      */
     public static void addToEnd(ListNode head, int toAdd) {
+        while (head.next != null) {
+            head = head.next;
+        }
+
+        head.next = new ListNode(toAdd); 
 
     }
 
