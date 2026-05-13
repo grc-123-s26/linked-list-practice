@@ -1,4 +1,24 @@
 public class Exercises {
+    
+    //TESTS ARE NOT WORKING
+    //Had to test using a main method myself
+
+    public static void main(String[] args)
+    {
+        ListNode l1 = new ListNode(3);
+        ListNode l2 = new ListNode(7);
+        ListNode l3 = new ListNode(6);
+        ListNode l4 = new ListNode(1);
+        ListNode l5 = new ListNode(3);
+
+        l1.next = l2;
+        l2.next = l3;
+        l3.next = l4;
+        l4.next = l5;
+
+        System.out.println(sum(l1));
+    }
+    
     /**
      * Returns the sum of the values in the linked list.
      * 
@@ -12,7 +32,14 @@ public class Exercises {
      * @return sum of the values in the list
      */
     public static int sum(ListNode head) {
-        return -1;
+        int sum = 0;
+        ListNode t1 = head;
+        while(t1 != null)
+        {
+            sum += t1.data;
+            t1 = t1.next;
+        }
+        return sum;
     }
 
     /**
