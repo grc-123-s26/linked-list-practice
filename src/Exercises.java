@@ -39,7 +39,20 @@ public class Exercises {
      * @return a count of the negative values in the list
      */
     public static int countNegative(ListNode head) {
-        return -1;
+        ListNode current = head;
+        int sum = 0;
+        if(head == null){
+            return 0;
+        }
+        else{
+            while(current != null){
+                if(current.data<0){
+                    sum++;
+                }
+                current = current.next;
+            }
+        }
+        return sum;
     }
 
     /**
@@ -57,6 +70,16 @@ public class Exercises {
      * @param toAdd the value to append in a new node
      */
     public static void addToEnd(ListNode head, int toAdd) {
+        ListNode current = head;
+        if(head == null){
+            return;
+        }
+        else{
+            while(current.next != null){
+                current = current.next;
+            }
+        }
+        current.next = new ListNode(toAdd);
 
     }
 
