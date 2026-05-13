@@ -128,7 +128,20 @@ public static void addToEnd(ListNode head, int toAdd) {
      * @param head the head of the list
      * @return whether the list is increasing
      */
-    public static boolean isIncreasing(ListNode head) {
-        return false;
+public static boolean isIncreasing(ListNode head) 
+{
+    ListNode current = head;
+
+    while (current != null && current.next != null) 
+        {
+        if (current.data > current.next.data) 
+        {
+            return false;
+        }
+
+        current = current.next;
     }
+
+    return true;
+}
 }
