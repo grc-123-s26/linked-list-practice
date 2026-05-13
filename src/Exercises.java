@@ -14,7 +14,7 @@ public class Exercises {
     public static int sum(ListNode head) {
         int sum = 0; 
         ListNode current = head; 
-        while (current! = null){
+        while (current != null){
             sum+=current.data;
             current = current.next; 
         }
@@ -40,7 +40,7 @@ public class Exercises {
 
         while(current != null){
             if(current.data<0){
-                count++
+                count++;
             }
             current = current.next;
         }
@@ -72,7 +72,7 @@ public class Exercises {
             current = current.next;
         }
 
-        current.next = new Listnode(toAdd);
+        current.next = new ListNode(toAdd);
 
     }
 
@@ -129,5 +129,6 @@ public class Exercises {
         }
         current = current.next; 
         }
+        return true;
     }
 }
