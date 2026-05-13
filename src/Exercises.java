@@ -7,26 +7,27 @@ public class Exercises {
     {
         ListNode l1 = new ListNode(3);
         ListNode l2 = new ListNode(7);
-        ListNode l3 = new ListNode(6);
-        ListNode l4 = new ListNode(1);
-        ListNode l5 = new ListNode(3);
-        ListNode l6 = new ListNode(-1);
+        ListNode l3 = new ListNode(8);
+        ListNode l4 = new ListNode(8);
+        ListNode l5 = new ListNode(10);
+        //ListNode l6 = new ListNode(-1);
         //ListNode l7 = new ListNode(-1);
 
         l1.next = l2;
         l2.next = l3;
         l3.next = l4;
         l4.next = l5;
-        l5.next = l6;
+        //l5.next = l6;
         //l6.next = l7;
         
-        addToEnd(l1, -1);
+        //addToEnd(l1, -1);
 
-        System.out.println(sum(l1));
-        System.out.println(countNegative(l1));
+        //System.out.println(sum(l1));
+        //System.out.println(countNegative(l1));
 
-        makePositive(l1);
-        System.out.println(sum(l1));
+        //makePositive(l1);
+        //System.out.println(sum(l1));
+        System.out.println(isIncreasing(l1));
     }
     
     /**
@@ -137,6 +138,12 @@ public class Exercises {
      * @return whether the list is increasing
      */
     public static boolean isIncreasing(ListNode head) {
-        return false;
+        ListNode t1 = head;
+        while(t1.next != null)
+        {
+            if(t1.data > t1.next.data){return false;}
+            t1 = t1.next;
+        }
+        return true;
     }
 }
