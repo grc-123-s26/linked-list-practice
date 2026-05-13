@@ -11,16 +11,18 @@ public class Exercises {
         ListNode l4 = new ListNode(1);
         ListNode l5 = new ListNode(3);
         ListNode l6 = new ListNode(-1);
-        ListNode l7 = new ListNode(-1);
+        //ListNode l7 = new ListNode(-1);
 
         l1.next = l2;
         l2.next = l3;
         l3.next = l4;
         l4.next = l5;
         l5.next = l6;
-        l6.next = l7;
+        //l6.next = l7;
+        
+        addToEnd(l1, -1);
 
-        //System.out.println(sum(l1));
+        System.out.println(sum(l1));
         System.out.println(countNegative(l1));
     }
     
@@ -85,7 +87,13 @@ public class Exercises {
      * @param toAdd the value to append in a new node
      */
     public static void addToEnd(ListNode head, int toAdd) {
-
+        ListNode newNode = new ListNode(toAdd);
+        ListNode t1 = head;
+        while(t1.next != null)
+        {
+            t1 = t1.next;
+        }
+        t1.next = newNode;
     }
 
     /**
