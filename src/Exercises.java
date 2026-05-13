@@ -104,25 +104,6 @@ public class Exercises {
      * @param head the head of the list
      */
     public static void makePositive(ListNode head) {
-        //using count negative as my shell for this process i think it'll function very simmilarly
-        // grab the value of head
-        // ListNode current = head;
-        // // if current is null return 0
-        // if (current == null) {
-        //     return 0;
-        // }
-        // // make a return val
-        // int returnVal = 0;
-
-        // // while loop
-        // while(current != null) {
-        //     int currentVal = current.data;
-        //     if (currentVal < 0) {
-        //         returnVal++;
-        //     }
-        //     current = current.next;
-        // }
-        // return returnVal;
         ListNode current = head;
         if (current == null) {
             return;
@@ -131,12 +112,11 @@ public class Exercises {
         while(current != null) {
             int currentVal = current.data;
             if (currentVal < 0) {
-                currentVal = currentVal * -1;
-                current.data = currentVal;
+                currentVal = currentVal * -1; //multiple a negative by -1 to get positive
+                current.data = currentVal; // change the value
             }
             current = current.next;
         }
-
     }
 
     /**
@@ -156,6 +136,30 @@ public class Exercises {
      * @return whether the list is increasing
      */
     public static boolean isIncreasing(ListNode head) {
-        return false;
+        ListNode current = head;
+        if (current == null) {
+            return true; //return true if head is null
+        }
+
+        //probably need to keep track of where i am AND whats net
+        ListNode nextNode = current.next;
+
+        while (current != null) {
+            int currentVal = current.data;
+            if (nextNode == null) {
+                // break the loop if the next value is null 
+                // and we haven't had a false from the logic that will follow it
+                // this prevents 1 number chains from breaking things 
+                return true; 
+            }
+            int nextVal = nextNode.data;
+            if (currentVal > nextVal) {
+                return false;                
+            }
+            current = nextNode;
+            nextNode = current.next;
+        }
+        
+        return true;
     }
 }
