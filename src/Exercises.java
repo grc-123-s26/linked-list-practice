@@ -97,8 +97,19 @@ public static void addToEnd(ListNode head, int toAdd) {
      * 
      * @param head the head of the list
      */
-    public static void makePositive(ListNode head) {
+    public static void makePositive(ListNode head) 
+    {
+        ListNode current = head;
 
+        while (current != null) 
+        {
+            if (current.data < 0) //check for negative values 
+            {
+                current.data = current.data * -1; //multiply by negative number to make positive 
+            }
+            //move to nexxt current value 
+            current = current.next;
+        }
     }
 
     /**
