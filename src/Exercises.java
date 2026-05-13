@@ -12,7 +12,18 @@ public class Exercises {
      * @return sum of the values in the list
      */
     public static int sum(ListNode head) {
-        return -1;
+        ListNode current = head;
+        int sum = 0;
+        if(head == null){
+            return 0;
+        }
+        else{
+            while(current != null){
+                sum += current.data;
+                current = current.next;
+            }
+        }
+        return sum;
     }
 
     /**
