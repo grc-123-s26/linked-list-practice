@@ -12,7 +12,17 @@ public class Exercises {
      * @return sum of the values in the list
      */
     public static int sum(ListNode head) {
-        return -1;
+        int sum = 0;
+        //start with head 
+        ListNode current = head;
+        //until head is null
+        while (current != null) {
+            //add value of current to sum 
+            sum += current.val;
+            //point current to next value 
+            current = current.next;
+        }
+        return sum;
     }
 
     /**
@@ -28,7 +38,19 @@ public class Exercises {
      * @return a count of the negative values in the list
      */
     public static int countNegative(ListNode head) {
-        return -1;
+        int count = 0;
+
+        ListNode current = head;
+
+        while (current != null) {
+            if (current.val < 0) {
+                count++;
+            }
+
+            current = current.next;
+        }
+
+        return count;
     }
 
     /**
