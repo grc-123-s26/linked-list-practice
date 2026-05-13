@@ -91,13 +91,16 @@ public class Exercises {
      * @param toAdd the value to append in a new node
      */
     public static void addToEnd(ListNode head, int toAdd) {
-        ListNode newNode = new ListNode(toAdd);
-        ListNode t1 = head;
-        while(t1.next != null)
+        if(head != null)
         {
-            t1 = t1.next;
+            ListNode newNode = new ListNode(toAdd);
+            ListNode t1 = head;
+            while(t1.next != null)
+            {
+                t1 = t1.next;
+            }
+            t1.next = newNode;
         }
-        t1.next = newNode;
     }
 
     /**
@@ -139,6 +142,7 @@ public class Exercises {
      */
     public static boolean isIncreasing(ListNode head) {
         ListNode t1 = head;
+        if(head == null){return true;}
         while(t1.next != null)
         {
             if(t1.data > t1.next.data){return false;}
