@@ -62,11 +62,13 @@ public class Exercises {
     public static void addToEnd(ListNode head, int toAdd) {
         if (head == null) return;
 
-        while (head.next != null) {
-            head = head.next;
+        ListNode current = head; 
+
+        while (current.next != null) {
+            current = current.next; 
         }
         
-        head.next = new ListNode(toAdd); 
+        current.next = new ListNode(toAdd); 
     }
 
     /**
@@ -105,6 +107,14 @@ public class Exercises {
      * @return whether the list is increasing
      */
     public static boolean isIncreasing(ListNode head) {
-        return false;
+        if (head == null) return true; 
+
+        ListNode current = head;
+        while (current.next != null) {
+            if (!(current.next.data >= current.data)) return false;
+            current = current.next; 
+        }
+
+        return true; 
     }
 }
