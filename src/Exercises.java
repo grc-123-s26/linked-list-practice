@@ -12,7 +12,17 @@ public class Exercises {
      * @return sum of the values in the list
      */
     public static int sum(ListNode head) {
-        return -1;
+        int sum = 0;
+        //start with head 
+        ListNode current = head;
+        //until head is null
+        while (current != null) {
+            //add value of current to sum 
+            sum += current.data;
+            //point current to next value 
+            current = current.next;
+        }
+        return sum;
     }
 
     /**
@@ -28,7 +38,21 @@ public class Exercises {
      * @return a count of the negative values in the list
      */
     public static int countNegative(ListNode head) {
-        return -1;
+        int count = 0;
+
+        ListNode current = head;
+        //while current is not null 
+        while (current != null) {
+            //check to see if val is negative 
+            if (current.data < 0) {
+                //if so, add to count
+                count++;
+            }
+                //move current to next value 
+            current = current.next;
+        }
+
+        return count;
     }
 
     /**
@@ -45,9 +69,21 @@ public class Exercises {
      * @param head the head of the list
      * @param toAdd the value to append in a new node
      */
-    public static void addToEnd(ListNode head, int toAdd) {
-
+public static void addToEnd(ListNode head, int toAdd) {
+    if (head == null) //check for null value 
+    {
+        return;
     }
+    //set current to head 
+    ListNode current = head; 
+
+    while (current.next != null) //while loop as normal 
+    {
+        current = current.next; 
+    }
+    //move to next value to be added 
+    current.next = new ListNode(toAdd);
+}
 
     /**
      * Modifies the list to make all negative values positive.
@@ -61,8 +97,19 @@ public class Exercises {
      * 
      * @param head the head of the list
      */
-    public static void makePositive(ListNode head) {
+    public static void makePositive(ListNode head) 
+    {
+        ListNode current = head;
 
+        while (current != null) 
+        {
+            if (current.data < 0) //check for negative values 
+            {
+                current.data = current.data * -1; //multiply by negative number to make positive 
+            }
+            //move to nexxt current value 
+            current = current.next;
+        }
     }
 
     /**
@@ -81,7 +128,20 @@ public class Exercises {
      * @param head the head of the list
      * @return whether the list is increasing
      */
-    public static boolean isIncreasing(ListNode head) {
-        return false;
+public static boolean isIncreasing(ListNode head) 
+{
+    ListNode current = head;
+
+    while (current != null && current.next != null) 
+        {
+        if (current.data > current.next.data) 
+        {
+            return false;
+        }
+
+        current = current.next;
     }
+
+    return true;
+}
 }
