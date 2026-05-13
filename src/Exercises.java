@@ -12,7 +12,20 @@ public class Exercises {
      * @return sum of the values in the list
      */
     public static int sum(ListNode head) {
-        return -1;
+        //grab the value of head
+        ListNode current = head;
+        if (current == null) {
+            return 0;
+        }
+
+        int returnVal = 0;
+
+        //go until you run out
+        while(current != null) {
+            returnVal += current.data;
+            current = current.next;
+        }
+        return returnVal;
     }
 
     /**
@@ -28,7 +41,24 @@ public class Exercises {
      * @return a count of the negative values in the list
      */
     public static int countNegative(ListNode head) {
-        return -1;
+        // grab the value of head
+        ListNode current = head;
+        // if current is null return 0
+        if (current == null) {
+            return 0;
+        }
+        // make a return val
+        int returnVal = 0;
+
+        // while loop
+        while(current != null) {
+            int currentVal = current.data;
+            if (currentVal < 0) {
+                returnVal++;
+            }
+            current = current.next;
+        }
+        return returnVal;
     }
 
     /**
@@ -46,7 +76,19 @@ public class Exercises {
      * @param toAdd the value to append in a new node
      */
     public static void addToEnd(ListNode head, int toAdd) {
+        ListNode current = head;
+        if (current == null) {
+            return;
+        }
 
+        // need to look ahead of where i am, not where i am in the chain to be able to do what i want
+        // or else i loop forever with the change inside the while adding over and over
+        // or lose the address i need because i jump past it
+        while(current.next != null) {
+            current = current.next;
+        }
+        //need to add the thing not to where i am, but to the next one
+        current.next = new ListNode(toAdd);
     }
 
     /**
@@ -62,7 +104,19 @@ public class Exercises {
      * @param head the head of the list
      */
     public static void makePositive(ListNode head) {
+        ListNode current = head;
+        if (current == null) {
+            return;
+        }
 
+        while(current != null) {
+            int currentVal = current.data;
+            if (currentVal < 0) {
+                currentVal = currentVal * -1; //multiple a negative by -1 to get positive
+                current.data = currentVal; // change the value
+            }
+            current = current.next;
+        }
     }
 
     /**
@@ -82,6 +136,30 @@ public class Exercises {
      * @return whether the list is increasing
      */
     public static boolean isIncreasing(ListNode head) {
-        return false;
+        ListNode current = head;
+        if (current == null) {
+            return true; //return true if head is null
+        }
+
+        //probably need to keep track of where i am AND whats net
+        ListNode nextNode = current.next;
+
+        while (current != null) {
+            int currentVal = current.data;
+            if (nextNode == null) {
+                // break the loop if the next value is null 
+                // and we haven't had a false from the logic that will follow it
+                // this prevents 1 number chains from breaking things 
+                return true; 
+            }
+            int nextVal = nextNode.data;
+            if (currentVal > nextVal) {
+                return false;                
+            }
+            current = nextNode;
+            nextNode = current.next;
+        }
+        
+        return true;
     }
 }
