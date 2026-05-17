@@ -59,6 +59,7 @@ public class Exercises {
      * @return sum of the values in the list
      */
     public static int sum(ListNode head) {
+        if(head==null) return 0;
         int sum =0;
          ListNode current = head;
          //until end of list
@@ -67,11 +68,9 @@ public class Exercises {
             // move current to the next node
             current=current.next;
         }
-        if(sum>0){
+        
             return sum;
-        }else{
-            return 0;
-        }
+        
         
     }
 
@@ -91,7 +90,7 @@ public class Exercises {
         int count =0;
         ListNode current = head;
         if(head==null){
-            return count;
+            return 0;
         }else{
           while(current!=null){
            if(current.data<0){
@@ -121,6 +120,7 @@ public class Exercises {
      * @param toAdd the value to append in a new node
      */
     public static void addToEnd(ListNode head, int toAdd) {
+        if(head==null){return;}
         ListNode addToEnd = new ListNode();
         addToEnd.data=toAdd;
          
@@ -177,7 +177,20 @@ public class Exercises {
      * @return whether the list is increasing
      */
     public static boolean isIncreasing(ListNode head) {
-        return false;
+        if (head == null || head.next ==null){
+         return true;
+
+        }
+
+        ListNode current = head;
+
+        while(current.next!= null){
+            if(current.data > current.next.data){
+                return false;
+            }
+            current = current.next;
+        }
+        return true;
     }
 
 }
