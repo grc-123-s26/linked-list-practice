@@ -12,7 +12,15 @@ public class Exercises {
      * @return sum of the values in the list
      */
     public static int sum(ListNode head) {
-        return -1;
+        int sum = 0; 
+        ListNode current = head; 
+
+        while (current != null){
+            sum += current.data;
+            current = current.next;
+        }
+
+        return sum; 
     }
 
     /**
@@ -28,7 +36,22 @@ public class Exercises {
      * @return a count of the negative values in the list
      */
     public static int countNegative(ListNode head) {
-        return -1;
+       // return -1;
+
+        //hello
+
+        int count = 0;
+        ListNode current = head;
+
+        while (current != null){
+            if (current.data < 0){
+                count++;
+            }
+            current = current.next;
+
+        }
+        return count;
+
     }
 
     /**
@@ -47,6 +70,17 @@ public class Exercises {
      */
     public static void addToEnd(ListNode head, int toAdd) {
 
+
+        if (head == null){
+            return; 
+        }
+        ListNode current = head; 
+
+        while (current.next != null){
+            current = current.next;
+        }
+
+        current.next = new ListNode(toAdd);
     }
 
     /**
@@ -62,8 +96,21 @@ public class Exercises {
      * @param head the head of the list
      */
     public static void makePositive(ListNode head) {
+        ListNode current = head;
 
+        while (current != null){
+             if (current.data < 0){
+           // return i++;
+           current.data = current.data * -1;
+        }
+        //ListNode makePositive = head; 
+       // return i++; 
+
+       current = current.next; 
     }
+        }
+
+        //yes
 
     /**
      * Returns true if every value in the list is less than or equal to the next
@@ -82,6 +129,21 @@ public class Exercises {
      * @return whether the list is increasing
      */
     public static boolean isIncreasing(ListNode head) {
-        return false;
+        //return false;
+
+        if (head == null) {
+            return true;
+        }
+
+        ListNode current = head; 
+
+        while (current.next != null){
+            if (current.data > current.next.data){
+                return false;
+            }
+            current = current.next;
+        }
+        return true; 
+
     }
 }
