@@ -12,10 +12,6 @@ public class Exercises {
      * @return sum of the values in the list
      */
     public static int sum(ListNode head) {
-        if (head == null) {
-            return 0;
-        }
-
         int total = 0;
         ListNode current = head;
 
@@ -40,10 +36,6 @@ public class Exercises {
      * @return a count of the negative values in the list
      */
     public static int countNegative(ListNode head) {
-        if (head == null) {
-            return 0;
-        }
-
         ListNode current = head;
         int negativeValues = 0;
 
