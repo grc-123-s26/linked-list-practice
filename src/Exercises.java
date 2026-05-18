@@ -19,7 +19,7 @@ public class Exercises {
         int total = 0;
         ListNode current = head;
 
-        while (current != null){
+        while (current != null) {
             total += current.data;
             current = current.next;
         }
@@ -40,7 +40,20 @@ public class Exercises {
      * @return a count of the negative values in the list
      */
     public static int countNegative(ListNode head) {
-        return -1;
+        if (head == null) {
+            return 0;
+        }
+
+        ListNode current = head;
+        int negativeValues = 0;
+
+        while (current != null) {
+            if (current.data < 0) {
+                negativeValues++;
+            }
+            current = current.next;
+        }
+        return negativeValues;
     }
 
     /**
