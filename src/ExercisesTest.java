@@ -131,6 +131,15 @@ public class ExercisesTest {
     }
 
     @Test
+    public void testAddToEndSameNumbers() {
+        ListNode head = buildList(1, 1, 1, 1);
+        Exercises.addToEnd(head, 1);
+        String expected = "1 -> 1 -> 1 -> 1 -> 1";
+        assertEquals(expected, listToString(head),
+            "After addToEnd same numbers list, expected " + expected + ", got " + listToString(head));
+    }
+
+    @Test
     public void testAddToEndNull() {
         ListNode head = null;
         assertDoesNotThrow(() -> Exercises.addToEnd(head, 5), "addToEnd(null,5) should not throw");

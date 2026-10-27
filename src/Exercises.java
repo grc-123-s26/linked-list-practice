@@ -12,7 +12,14 @@ public class Exercises {
      * @return sum of the values in the list
      */
     public static int sum(ListNode head) {
-        return -1;
+        int total = 0;
+
+        while (head != null) {
+            total += head.data;
+            head = head.next;
+        }
+
+        return total;
     }
 
     /**
@@ -28,7 +35,17 @@ public class Exercises {
      * @return a count of the negative values in the list
      */
     public static int countNegative(ListNode head) {
-        return -1;
+        int count = 0;
+
+        while (head != null) {
+            if (head.data < 0) {
+                count++;
+            }
+
+            head = head.next;
+        }
+
+        return count;
     }
 
     /**
@@ -46,7 +63,19 @@ public class Exercises {
      * @param toAdd the value to append in a new node
      */
     public static void addToEnd(ListNode head, int toAdd) {
+        boolean isAtLastNode = false;
 
+        if (head != null) {
+            while (!isAtLastNode) {
+                if (head.next != null) {
+                    head = head.next;
+                } else {
+                    isAtLastNode = true;
+                    head.next = new ListNode(toAdd);
+                    head = head.next;
+                }
+            }
+        }
     }
 
     /**
@@ -62,7 +91,15 @@ public class Exercises {
      * @param head the head of the list
      */
     public static void makePositive(ListNode head) {
+        if (head != null) {
+            while (head != null) {
+                if (head.data < 0) {
+                    head.data = -1 * head.data;
+                }
 
+                head = head.next;
+            }
+        }
     }
 
     /**
@@ -82,6 +119,18 @@ public class Exercises {
      * @return whether the list is increasing
      */
     public static boolean isIncreasing(ListNode head) {
-        return false;
+        if (head == null) {
+            return true;
+        }
+
+        while (head.next != null) {
+            if (head.data > head.next.data) {
+                return false;
+            }
+
+            head = head.next;
+        }
+
+        return true;
     }
 }
