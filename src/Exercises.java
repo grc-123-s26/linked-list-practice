@@ -12,7 +12,16 @@ public class Exercises {
      * @return sum of the values in the list
      */
     public static int sum(ListNode head) {
-        return -1;
+        int sum = 0;
+        ListNode current = head;
+
+        // loop through each node, adding onto sum
+        while (current != null) {
+            sum += current.data;
+            current = current.next;
+        }
+
+        return sum;
     }
 
     /**
@@ -28,7 +37,19 @@ public class Exercises {
      * @return a count of the negative values in the list
      */
     public static int countNegative(ListNode head) {
-        return -1;
+        int count = 0;
+        ListNode current = head;
+
+        // if current node is not a negative, increase count
+        while (current != null) {
+            if (current.data < 0) {
+                count++;
+            }
+
+            current = current.next;
+        }
+        
+        return count;
     }
 
     /**
@@ -46,7 +67,20 @@ public class Exercises {
      * @param toAdd the value to append in a new node
      */
     public static void addToEnd(ListNode head, int toAdd) {
+        // if head is null, no action is taken
+        if (head == null) {
+            return; 
+        }
 
+        ListNode current = head;
+
+        // checks to see if next node is null
+        while (current.next != null) {
+            current = current.next;
+        }
+
+        // add new node
+        current.next = new ListNode(toAdd);
     }
 
     /**
@@ -62,7 +96,16 @@ public class Exercises {
      * @param head the head of the list
      */
     public static void makePositive(ListNode head) {
+        ListNode current = head;
 
+        // if current node is a negative, make it a positive
+        while (current != null) {
+            if (current.data < 0) {
+                current.data = -current.data; // neg + neg = pos
+            }
+
+            current = current.next;
+        }
     }
 
     /**
@@ -82,6 +125,18 @@ public class Exercises {
      * @return whether the list is increasing
      */
     public static boolean isIncreasing(ListNode head) {
-        return false;
+        ListNode current = head;
+
+        while (current != null && current.next != null) {
+            // if current node is greater than next, return false
+            if (current.data > current.next.data) {
+                return false;
+            }
+
+            current = current.next;
+        }
+
+        // if current data looped successfully, return true
+        return true;
     }
 }
