@@ -12,8 +12,16 @@ public class Exercises {
      * @return sum of the values in the list
      */
     public static int sum(ListNode head) {
-        return -1;
+    int total = 0;
+    ListNode current = head;
+
+    while (current != null) {
+        total += current.data;
+        current = current.next;
     }
+
+    return total;
+    }   
 
     /**
      * Returns how many negative values there are in the linked list.
@@ -28,7 +36,17 @@ public class Exercises {
      * @return a count of the negative values in the list
      */
     public static int countNegative(ListNode head) {
-        return -1;
+    int count = 0;
+    ListNode current = head;
+
+    while (current != null) {
+        if (current.data < 0) {
+            count++;
+        }
+        current = current.next;
+    }
+
+    return count;
     }
 
     /**
@@ -46,7 +64,17 @@ public class Exercises {
      * @param toAdd the value to append in a new node
      */
     public static void addToEnd(ListNode head, int toAdd) {
+    if (head == null) {
+        return;
+    }
 
+    ListNode current = head;
+
+    while (current.next != null) {
+        current = current.next;
+    }
+
+    current.next = new ListNode(toAdd);
     }
 
     /**
@@ -62,7 +90,14 @@ public class Exercises {
      * @param head the head of the list
      */
     public static void makePositive(ListNode head) {
+    ListNode current = head;
 
+    while (current != null) {
+        if (current.data < 0) {
+            current.data = current.data * -1;
+        }
+        current = current.next;
+    }
     }
 
     /**
@@ -82,6 +117,15 @@ public class Exercises {
      * @return whether the list is increasing
      */
     public static boolean isIncreasing(ListNode head) {
-        return false;
+    ListNode current = head;
+
+    while (current != null && current.next != null) {
+        if (current.data > current.next.data) {
+            return false;
+        }
+        current = current.next;
+    }
+
+    return true;
     }
 }
